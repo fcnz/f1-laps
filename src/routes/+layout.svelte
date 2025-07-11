@@ -18,8 +18,7 @@
 
 	function handleSelect() {
 		if (!page.route.id) return;
-		const toGoto =
-			base + resolveRoute(page.route.id, { ...page.params, session_key: selectedSession });
+		const toGoto = resolveRoute(page.route.id, { ...page.params, session_key: selectedSession });
 		console.log('🚀 ~ handleSelect ~ toGoto:', toGoto);
 		goto(toGoto);
 	}
