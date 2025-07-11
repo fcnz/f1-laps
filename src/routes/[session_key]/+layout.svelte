@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import type { LayoutProps } from './$types';
 	import SessionInfo from './SessionInfo.svelte';
@@ -16,13 +16,13 @@
 			class="cursor-pointer px-2 py-1 hover:bg-green-100 {(page.route.id ?? '').includes('drivers')
 				? 'bg-green-100'
 				: ''}"
-			href="/{page.params.session_key}/drivers">Drivers</a
+			href="{base}/{page.params.session_key}/drivers">Drivers</a
 		>
 		<a
 			class="cursor-pointer px-2 py-1 hover:bg-green-100 {(page.route.id ?? '').includes('laps')
 				? 'bg-green-100'
 				: ''}"
-			href="/{page.params.session_key}/laps">Laps</a
+			href="{base}/{page.params.session_key}/laps">Laps</a
 		>
 	</div>
 	<div class="mt-4 w-full flex-1">

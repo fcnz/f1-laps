@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import type { LayoutProps } from './$types';
 
 	const { data, children }: LayoutProps = $props();
 
 	function handleDriverClick(driverNumber: number) {
-		goto(`/${page.params.session_key}/drivers/${driverNumber}`);
+		const toGoto = base + `/${page.params.session_key}/drivers/${driverNumber}`;
+		console.log('🚀 ~ handleDriverClick ~ toGoto:', toGoto);
+		goto(toGoto);
 	}
 </script>
 

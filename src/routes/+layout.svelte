@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { resolveRoute } from '$app/paths';
+	import { base, resolveRoute } from '$app/paths';
 	import { page } from '$app/state';
 	import '../app.css';
 	import type { LayoutProps } from './$types';
@@ -18,7 +18,10 @@
 
 	function handleSelect() {
 		if (!page.route.id) return;
-		goto(resolveRoute(page.route.id, { ...page.params, session_key: selectedSession }));
+		const toGoto =
+			base + resolveRoute(page.route.id, { ...page.params, session_key: selectedSession });
+		console.log('🚀 ~ handleSelect ~ toGoto:', toGoto);
+		goto(toGoto);
 	}
 </script>
 
