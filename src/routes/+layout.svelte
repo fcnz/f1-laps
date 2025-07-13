@@ -26,7 +26,7 @@
 
 <div class="flex h-screen flex-col">
 	<nav class="flex border-b">
-		<img src="/favicon.png" alt="Logo" class="h-12 w-12 p-2" />
+		<img src="{base}/favicon.png" alt="Logo" class="h-12 w-12 p-2" />
 		<select
 			name="sessions"
 			id="session-picker"
