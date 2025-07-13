@@ -7,6 +7,7 @@ export const ssr = false;
 export const load: LayoutLoad = async ({ params, fetch }) => {
 	try {
 		const sessions = await getSessions({ year: 2025 }, { fetch, cache: 'no-cache' });
+		sessions.reverse();
 
 		return {
 			sessions,
