@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { base } from '$app/paths';
+	import { resolveRoute } from '$app/paths';
 	import { page } from '$app/state';
 	import type { LayoutProps } from './$types';
 
 	const { data, children }: LayoutProps = $props();
 
 	function handleDriverClick(driverNumber: number) {
-		const toGoto = base + `/${page.params.session_key}/drivers/${driverNumber}`;
-		console.log('🚀 ~ handleDriverClick ~ toGoto:', toGoto);
+		const toGoto = resolveRoute('/[session_key]/drivers/[driver_number]', {
+			...page.params,
+			driver_number: String(driverNumber)
+		});
 		goto(toGoto);
 	}
 </script>

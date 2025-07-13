@@ -18,8 +18,12 @@
 
 	function handleSelect() {
 		if (!page.route.id) return;
-		const toGoto = resolveRoute(page.route.id, { ...page.params, session_key: selectedSession });
-		console.log('🚀 ~ handleSelect ~ toGoto:', toGoto);
+		let toGoto: string;
+		if (page.route.id.includes('[session_key]')) {
+			toGoto = resolveRoute(page.route.id, { ...page.params, session_key: selectedSession });
+		} else {
+			toGoto = resolveRoute('/[session_key]/drivers', { session_key: selectedSession });
+		}
 		goto(toGoto);
 	}
 </script>
